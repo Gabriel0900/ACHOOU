@@ -3,27 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AchShoppy - Encontre os melhores produtos de afiliados para sua casa. Organização, utilidades e mais com os melhores preços!">
+    <meta name="keywords" content="produtos afiliados, organização, utilidades domésticas, ofertas">
+    <meta name="author" content="AchShoppy">
+    <meta property="og:title" content="AchShoppy - Produtos Incríveis">
+    <meta property="og:image" content="URL_DA_IMAGEM_DESTAQUE">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style">
     <title>AchShoppy - Produtos Incríveis de Afiliados</title>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --bg-color: #f4f4f9;
+            --hover-color: #2980b9;
+            --product-shadow: rgba(0, 0, 0, 0.1);
+            --product-hover-shadow: rgba(0, 0, 0, 0.2);
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f4f4f9;
-            color: #333;
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: background 0.3s ease;
         }
 
         header {
-            background: #3498db;
+            background: var(--secondary-color);
             color: white;
             padding: 15px 0;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             font-size: 2.5em;
             margin: 0;
             font-weight: 700;
+        }
+
+        main {
+            padding: 20px 0;
+            animation: fadeIn 1s ease-out;
         }
 
         .container {
@@ -35,28 +58,38 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
+            transition: grid-template-columns 0.3s ease;
         }
 
         .product {
             background: white;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px var(--product-shadow);
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product:hover {
             transform: translateY(-10px);
+            box-shadow: 0 8px 20px var(--product-hover-shadow);
         }
 
         .product img {
             width: 100%;
             height: auto;
             object-fit: cover;
+            loading: lazy;
+            border-bottom: 2px solid #eee;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover img {
+            transform: scale(1.05);
         }
 
         .product-info {
             padding: 15px;
+            transition: background 0.3s ease;
         }
 
         .product-info h3 {
@@ -74,7 +107,7 @@
         .product-info a {
             display: inline-block;
             text-decoration: none;
-            background: #3498db;
+            background: var(--secondary-color);
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
@@ -83,7 +116,7 @@
         }
 
         .product-info a:hover {
-            background: #2980b9;
+            background: var(--hover-color);
         }
 
         .social-links {
@@ -92,14 +125,23 @@
         }
 
         .social-links a {
-            font-size: 1.5em;
-            color: #2c3e50;
+            font-size: 2.5em;
             margin: 0 15px;
-            text-decoration: none;
+            transition: transform 0.3s ease;
         }
 
         .social-links a:hover {
-            color: #3498db;
+            transform: scale(1.2);
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.2);
         }
 
         @media (max-width: 768px) {
@@ -120,6 +162,14 @@
             }
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -128,114 +178,68 @@
     <h1>AchShoppy - Produtos Incríveis de Afiliados</h1>
 </header>
 
-<div class="container">
-    <div class="products">
-        <!-- Produto 1 -->
-        <div class="product">
-            <img src="https://down-br.img.susercontent.com/file/444d5d4a45b9734e23757b5fe187d4da.webp" alt="Capa Elástica para Sofá">
-            <div class="product-info">
-                <h3>Capa Elástica para Sofá de 1 a 4 Lugares</h3>
-                <p>Proteja seu sofá com esta capa elástica e de fácil ajuste, disponível para 1 a 4 lugares.</p>
-                <a href="https://s.shopee.com.br/AUfDNuYdnw" target="_blank">Comprar Agora</a>
+<main>
+    <div class="container">
+        <div class="products">
+            <!-- Produto 1 -->
+            <div class="product">
+                <img src="https://down-br.img.susercontent.com/file/444d5d4a45b9734e23757b5fe187d4da.webp" alt="Capa Elástica para Sofá">
+                <div class="product-info">
+                    <h3>Capa Elástica para Sofá de 1 a 4 Lugares</h3>
+                    <p>Proteja seu sofá com esta capa elástica e de fácil ajuste, disponível para 1 a 4 lugares.</p>
+                    <a href="https://s.shopee.com.br/AUfDNuYdnw" target="_blank">Comprar Agora</a>
+                </div>
             </div>
-        </div>
-
-        <!-- Produto 2 -->
-        <div class="product">
-            <img src="https://down-br.img.susercontent.com/file/sg-11134201-7rfhj-m3wgehasn2ir48@resize_w900_nl.webp" alt="Pote Organizador">
-            <div class="product-info">
-                <h3>Pote Organizador Hermético Multiuso para Geladeira</h3>
-                <p>Ideal para manter sua geladeira organizada e seus alimentos frescos por mais tempo.</p>
-                <a href="https://s.shopee.com.br/30ZCSsHoEA" target="_blank">Comprar Agora</a>
+            <!-- Produto 2 -->
+            <div class="product">
+                <img src="https://down-br.img.susercontent.com/file/sg-11134201-7rfhj-m3wgehasn2ir48@resize_w900_nl.webp" alt="Pote Organizador">
+                <div class="product-info">
+                    <h3>Pote Organizador Hermético Multiuso para Geladeira</h3>
+                    <p>Ideal para manter sua geladeira organizada e seus alimentos frescos por mais tempo.</p>
+                    <a href="https://s.shopee.com.br/30ZCSsHoEA" target="_blank">Comprar Agora</a>
+                </div>
             </div>
-        </div>
-
-        <!-- Produto 3 -->
-        <div class="product">
-            <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m4vz3b4ruysy79.webp" alt="Kit Organizadores">
-            <div class="product-info">
-                <h3>Kit 3 Organizadores de Geladeira</h3>
-                <p>Organize sua geladeira com este kit de 3 potes herméticos com cesto removível.</p>
-                <a href="https://s.shopee.com.br/9f66PHAnCz" target="_blank">Comprar Agora</a>
+            <!-- Produto 3 -->
+            <div class="product">
+                <img src="https://down-br.img.susercontent.com/file/sg-11134201-7rfhj-m3wgehasn2ir48@resize_w900_nl.webp" alt="Espelho de Aumento">
+                <div class="product-info">
+                    <h3>Espelho de Aumento com Iluminação</h3>
+                    <p>Espelho com aumento para facilitar sua rotina de cuidados pessoais. Possui iluminação ajustável.</p>
+                    <a href="https://s.shopee.com.br/TOKOHpHoEA" target="_blank">Comprar Agora</a>
+                </div>
             </div>
-        </div>
-
-        <!-- Produto 4 -->
-        <div class="product">
-            <img src="https://down-br.img.susercontent.com/file/sg-11134201-7rbmy-lmkvh8nunecaa1.webp" alt="Garrafa Acrílico">
-            <div class="product-info">
-                <h3>Garrafa Quadrada de Acrílico 500ml</h3>
-                <p>Perfeita para armazenar água, sucos e outros líquidos, sem BPA e com tampa segura.</p>
-                <a href="https://s.shopee.com.br/1g3osgi3dD" target="_blank">Comprar Agora</a>
+            <!-- Produto 4 -->
+            <div class="product">
+                <img src="https://down-br.img.susercontent.com/file/sg-11134201-jkhjl-klahsjwfo9jhvw9j.webp" alt="Cadeira Dobrável">
+                <div class="product-info">
+                    <h3>Cadeira Dobrável Confortável</h3>
+                    <p>Ideal para quem precisa de praticidade e conforto. Fácil de armazenar e carregar.</p>
+                    <a href="https://s.shopee.com.br/POTHSjq1vj" target="_blank">Comprar Agora</a>
+                </div>
             </div>
-        </div>
-
-        <!-- Produto 5 -->
-        <div class="product">
-            <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lsvepkr1khsdef@resize_w900_nl.webp" alt="Potes Redondos">
-            <div class="product-info">
-                <h3>Potes Herméticos Redondos com Vedação a Vácuo</h3>
-                <p>Ótimos para conservar alimentos e manter a frescura por mais tempo com vedação a vácuo.</p>
-                <a href="https://s.shopee.com.br/9A9prCyOTS" target="_blank">Comprar Agora</a>
-            </div>
-        </div>
-
-        <!-- Produto 6 -->
-        <div class="product">
-            <img src="https://th.bing.com/th/id/OIP.kXPU1SoFCNX1KrrD_zlJnQAAAA?rs=1&pid=ImgDetMain" alt="Pote Acrílico">
-            <div class="product-info">
-                <h3>Pote Organizador Hermético de Acrílico com Trava</h3>
-                <p>Prático, seguro e ideal para organização de alimentos em sua casa.</p>
-                <a href="https://s.shopee.com.br/8pWzRcbVE8" target="_blank">Comprar Agora</a>
-            </div>
-        </div>
-
-        <!-- Produto 7 -->
-        <div class="product">
-            <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m4osy6urfdpx03@resize_w900_nl.webp" alt="Guarda-Chuva">
-            <div class="product-info">
-                <h3>Guarda-Chuva Grande Automático</h3>
-                <p>Perfeito para os dias de chuva, com tecido preto e proteção solar.</p>
-                <a href="https://s.shopee.com.br/9UmgDZAuxS" target="_blank">Comprar Agora</a>
-            </div>
-        </div>
-
-        <!-- Produto 8 -->
-        <div class="product">
-            <img src="https://down-br.img.susercontent.com/file/sg-11134201-7rdyp-lzn607n6we942b.webp" alt="Capa Sofá">
-            <div class="product-info">
-                <h3>Capa Universal para Sofá Antiderrapante</h3>
-                <p>De luxo e antiderrapante, para proteger seu sofá e dar um toque especial ao ambiente.</p>
-                <a href="https://s.shopee.com.br/2B05UBaPZN" target="_blank">Comprar Agora</a>
-            </div>
-        </div>
-
-        <!-- Produto 9 -->
-        <div class="product">
-            <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m636rgjxmyq8a3.webp" alt="Kit Potes 480ml">
-            <div class="product-info">
-                <h3>Kit de 4 Potes Herméticos 480ml</h3>
-                <p>Compactos e ideais para armazenar alimentos frescos e organizados.</p>
-                <a href="https://s.shopee.com.br/6V94eGYgay" target="_blank">Comprar Agora</a>
-            </div>
-        </div>
-
-        <!-- Produto 10 -->
-        <div class="product">
-            <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m63cnzyk9g7k5e.webp" alt="Kit Potes 8-12">
-            <div class="product-info">
-                <h3>Kit de 8 a 12 Potes Herméticos de Acrílico</h3>
-                <p>Kit de potes resistentes e perfeitos para organização de alimentos em sua casa.</p>
-                <a href="https://s.shopee.com.br/2VcvszChE1" target="_blank">Comprar Agora</a>
+            <!-- Produto 5 -->
+            <div class="product">
+                <img src="https://down-br.img.susercontent.com/file/sd-jhgh2-2kjhflsjdh-sldfiufjsl.webp" alt="Luminária LED">
+                <div class="product-info">
+                    <h3>Luminária LED de Mesa</h3>
+                    <p>Perfeita para criar um ambiente moderno e funcional, com controle de intensidade de luz.</p>
+                    <a href="https://s.shopee.com.br/SHGSjklHhGG" target="_blank">Comprar Agora</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 
 <div class="social-links">
-    <a href="https://www.tiktok.com/@achshoppy" target="_blank">TikTok</a>
-    <a href="https://www.instagram.com/achshoppyy/?__pwa=1" target="_blank">Instagram</a>
-    <a href="https://wa.me/qr/XHEFED2K2H2PN1" target="_blank">WhatsApp</a>
+    <a href="https://www.tiktok.com/@achshoppy" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.O3FF-Mb0ZBQaxE9zN1CMFwAAAA?rs=1&pid=ImgDetMain" alt="TikTok">
+    </a>
+    <a href="https://www.instagram.com/achshoppyy/?__pwa=1" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.if2ieS05NYxAYyY1alBpFwHaHa?rs=1&pid=ImgDetMain" alt="Instagram">
+    </a>
+    <a href="https://wa.me/qr/XHEFED2K2H2PN1" target="_blank">
+        <img src="https://static.vecteezy.com/system/resources/previews/012/162/809/original/whatsapp-logo-3d-render-free-png.png" alt="WhatsApp">
+    </a>
 </div>
 
 </body>
