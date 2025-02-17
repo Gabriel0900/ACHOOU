@@ -6,72 +6,134 @@
     <meta name="description" content="AchShoppy - Encontre os melhores produtos de afiliados para sua casa. Organização, utilidades e mais com os melhores preços!">
     <meta name="keywords" content="produtos afiliados, organização, utilidades domésticas, ofertas">
     <meta name="author" content="AchShoppy">
-    <meta property="og:title" content="AchShoppy - Produtos Incríveis">
+    <meta property="og:title" content="Achadinhos da Shopee – Ofertas Incríveis">
     <meta property="og:image" content="URL_DA_IMAGEM_DESTAQUE">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style">
-    <title>AchShoppy - Produtos Incríveis de Afiliados</title>
+    <title>Achadinhos da Shopee – Encontre Ofertas Incríveis</title>
     <style>
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
             --text-color: #333;
-            --bg-color: #f4f4f9;
+            --bg-color-light: #f4f4f9;
+            --bg-color-dark: #1e1e1e;
             --hover-color: #2980b9;
-            --product-shadow: rgba(0, 0, 0, 0.1);
-            --product-hover-shadow: rgba(0, 0, 0, 0.2);
+            --button-bg-color: #e74c3c;
+            --button-bg-hover: #c0392b;
+            --header-bg-light: #3498db;
+            --header-bg-dark: #2c3e50;
         }
 
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: var(--bg-color);
+            background: var(--bg-color-light);
             color: var(--text-color);
             transition: background 0.3s ease;
         }
 
         header {
-            background: var(--secondary-color);
+            background: var(--header-bg-light);
             color: white;
             padding: 15px 0;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        header.dark-mode {
+            background: var(--header-bg-dark);
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin: 0;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        main {
-            padding: 20px 0;
-            animation: fadeIn 1s ease-out;
+        .theme-toggle {
+            display: inline-block;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: none;
+            background-color: transparent;
+            color: white;
+            border-radius: 5px;
+            transition: background 0.3s ease;
         }
 
-        .container {
+        .theme-toggle:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
             width: 80%;
-            margin: 30px auto;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        .message-form {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .message-form textarea {
+            width: 80%;
+            max-width: 500px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            height: 150px;
+            font-size: 1em;
+            resize: vertical;
+        }
+
+        .message-form button {
+            background-color: var(--button-bg-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background 0.3s ease;
+        }
+
+        .message-form button:hover {
+            background-color: var(--button-bg-hover);
         }
 
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
-            transition: grid-template-columns 0.3s ease;
+            padding: 20px;
         }
 
         .product {
             background: white;
             border-radius: 10px;
-            box-shadow: 0 4px 10px var(--product-shadow);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 20px var(--product-hover-shadow);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .product img {
@@ -79,7 +141,6 @@
             height: auto;
             object-fit: cover;
             loading: lazy;
-            border-bottom: 2px solid #eee;
             transition: transform 0.3s ease;
         }
 
@@ -89,7 +150,6 @@
 
         .product-info {
             padding: 15px;
-            transition: background 0.3s ease;
         }
 
         .product-info h3 {
@@ -112,7 +172,6 @@
             padding: 10px 20px;
             border-radius: 5px;
             text-align: center;
-            transition: background 0.3s ease;
         }
 
         .product-info a:hover {
@@ -137,37 +196,15 @@
         .social-links img {
             width: 40px;
             height: 40px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links img:hover {
-            transform: scale(1.2);
         }
 
         @media (max-width: 768px) {
-            .container {
-                width: 95%;
-            }
-
-            header {
-                padding: 20px 0;
-            }
-
-            h1 {
-                font-size: 2em;
+            .search-bar input {
+                width: 90%;
             }
 
             .products {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
             }
         }
     </style>
@@ -175,8 +212,13 @@
 <body>
 
 <header>
-    <h1>AchShoppy - Produtos Incríveis de Afiliados</h1>
+    <h1>Achadinhos da Shopee – Ofertas Incríveis</h1>
+    <button class="theme-toggle">Alterar Tema</button>
 </header>
+
+<div class="search-bar">
+    <input type="text" id="search" placeholder="Pesquise por produtos...">
+</div>
 
 <main>
     <div class="container">
@@ -199,34 +241,14 @@
                     <a href="https://s.shopee.com.br/30ZCSsHoEA" target="_blank">Comprar Agora</a>
                 </div>
             </div>
-            <!-- Produto 3 -->
-            <div class="product">
-                <img src="https://down-br.img.susercontent.com/file/sg-11134201-7rfhj-m3wgehasn2ir48@resize_w900_nl.webp" alt="Espelho de Aumento">
-                <div class="product-info">
-                    <h3>Espelho de Aumento com Iluminação</h3>
-                    <p>Espelho com aumento para facilitar sua rotina de cuidados pessoais. Possui iluminação ajustável.</p>
-                    <a href="https://s.shopee.com.br/TOKOHpHoEA" target="_blank">Comprar Agora</a>
-                </div>
-            </div>
-            <!-- Produto 4 -->
-            <div class="product">
-                <img src="https://down-br.img.susercontent.com/file/sg-11134201-jkhjl-klahsjwfo9jhvw9j.webp" alt="Cadeira Dobrável">
-                <div class="product-info">
-                    <h3>Cadeira Dobrável Confortável</h3>
-                    <p>Ideal para quem precisa de praticidade e conforto. Fácil de armazenar e carregar.</p>
-                    <a href="https://s.shopee.com.br/POTHSjq1vj" target="_blank">Comprar Agora</a>
-                </div>
-            </div>
-            <!-- Produto 5 -->
-            <div class="product">
-                <img src="https://down-br.img.susercontent.com/file/sd-jhgh2-2kjhflsjdh-sldfiufjsl.webp" alt="Luminária LED">
-                <div class="product-info">
-                    <h3>Luminária LED de Mesa</h3>
-                    <p>Perfeita para criar um ambiente moderno e funcional, com controle de intensidade de luz.</p>
-                    <a href="https://s.shopee.com.br/SHGSjklHhGG" target="_blank">Comprar Agora</a>
-                </div>
-            </div>
+            <!-- Adicionar mais produtos conforme necessário -->
         </div>
+    </div>
+
+    <div class="message-form">
+        <h3>Tem dúvidas ou quer saber mais sobre algum produto?</h3>
+        <textarea placeholder="Deixe sua mensagem aqui..." rows="4"></textarea><br>
+        <button>Enviar Mensagem</button>
     </div>
 </main>
 
@@ -241,6 +263,18 @@
         <img src="https://static.vecteezy.com/system/resources/previews/012/162/809/original/whatsapp-logo-3d-render-free-png.png" alt="WhatsApp">
     </a>
 </div>
+
+<script>
+    const themeToggleBtn = document.querySelector('.theme-toggle');
+    const body = document.body;
+    const header = document.querySelector('header');
+
+    themeToggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        header.classList.toggle('dark-mode');
+        body.style.backgroundColor = body.classList.contains('dark-mode') ? '#1e1e1e' : '#f4f4f9';
+    });
+</script>
 
 </body>
 </html>
